@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
+import useFirebase from "../../Hook/useFirebase";
 import "./Events.css";
 const Events = () => {
   const [event, setEvent] = useState([]);
@@ -11,8 +12,12 @@ const Events = () => {
     fetch("http://localhost:5000/allEvents")
       .then((res) => res.json())
       .then((data) => setEvent(data));
-  }, [control]);
+  }, []);
 
+   
+
+  
+ 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/deleteEvent/${id}`, {
       method: "DELETE",
@@ -21,6 +26,7 @@ const Events = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
+          console.log(data.deletedCount)
           setConrol(!control);
         } else {
           setConrol(false);
@@ -30,8 +36,10 @@ const Events = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Events {event?.length}</h1>
+    <div className='container'>
+      
+      <h1>My events : {event.length}</h1>
+     
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -51,7 +59,7 @@ const Events = () => {
               <td>{pd.image}</td>
               <button
                 onClick={() => handleDelete(pd._id)}
-                className="btn bg-danger p-2"
+                className='btn bg-danger p-2'
               >
                 Delete
               </button>
@@ -60,7 +68,7 @@ const Events = () => {
         ))}
       </Table>
     </div>
-  );
+  )
 };
 
 export default Events;

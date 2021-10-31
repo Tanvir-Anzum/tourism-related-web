@@ -10,6 +10,8 @@ import AddVolunteer from "./components/AddVolunteer/AddVolunteer";
 import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 import Events from "./components/Events/Events";
 import MyEvents from "./components/MyEvents/MyEvents";
+import SingleItem from "./components/SingleItem/SingleItem";
+import Orders from "./components/Orders/Orders";
 
 function App() {
   return (
@@ -29,11 +31,14 @@ function App() {
           <Route exact path="/myEvents">
             <MyEvents></MyEvents>
           </Route>
-          <Route exact path="/events">
-            <Events></Events>
+          <Route exact path="/orders">
+           <Orders></Orders>
           </Route>
           <Route exact path="/addEvents">
             <AddEvents></AddEvents>
+          </Route>
+          <Route path="/singleItem/:itemId">
+            <SingleItem></SingleItem>
           </Route>
           <Route exact path="/adminDashboard">
             <AdminDashboard></AdminDashboard>

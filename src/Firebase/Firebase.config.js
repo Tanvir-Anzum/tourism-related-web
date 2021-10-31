@@ -1,10 +1,15 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyBhoMzn3VfgW4S5tkY6vzMKtyYzTa4CHMo",
-  authDomain: "fireabse-authentication.firebaseapp.com",
-  projectId: "fireabse-authentication",
-  storageBucket: "fireabse-authentication.appspot.com",
-  messagingSenderId: "1036586571476",
-  appId: "1:1036586571476:web:9e90ce2ed4006f5d134d41",
-};
+import { initializeApp } from "@firebase/app"
 
-export default firebaseConfig;
+const firebaseConfig = {
+  apiKey: 'AIzaSyAWk4BYuN3tdKieiVZaN2KrAusdPUVvR3M',
+  authDomain: 'new-simple-3bf2b.firebaseapp.com',
+  projectId: 'new-simple-3bf2b',
+  storageBucket: 'new-simple-3bf2b.appspot.com',
+  messagingSenderId: '105867803909',
+  appId: '1:105867803909:web:4871a6b51880d3c8bccb6c',
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+
+export default firebaseConfig

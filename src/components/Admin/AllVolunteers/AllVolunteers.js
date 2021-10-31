@@ -1,14 +1,34 @@
+import { connectAuthEmulator } from "@firebase/auth";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import "./AllVolunteers.css";
 const AllVolunteers = () => {
-  const [volunteer, setVounteer] = useState([]);
+  const [control, setConrol] = useState(false)
+  const [volunteer, setVolunteer] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/allVolunteer")
-      .then((res) => res.json())
-      .then((data) => setVounteer(data));
-  }, []);
+   useEffect(() => {
+     fetch('http://localhost:5000/allVolunteer')
+       .then((res) => res.json())
+       .then((data) => setVolunteer(data))
+   }, [control])
+   const handleDelete = (id) => {
+     fetch(`http://localhost:5000/deleteVolunteer/${id}`, {
+       method: 'DELETE',
+       headers: { 'content-type': 'application/json' },
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         if (data.deletedCount) {
+          
+           setConrol(!control)
+         } else {
+           console.log(data.deletedCount)
+           setConrol(false)
+         }
+       })
+     console.log(id)
+   }
+ 
 
   return (
     <div>
@@ -30,13 +50,18 @@ const AllVolunteers = () => {
               <td>{pd?.name}</td>
               <td>{pd?.email}</td>
               <td>{pd?.date}</td>
-              <button className="btn bg-danger p-2">Delete</button>
+              <button
+                onClick={() => handleDelete(pd._id)}
+                className='btn bg-danger p-2'
+              >
+                Delete
+              </button>
             </tr>
           </tbody>
         ))}
       </Table>
     </div>
-  );
+  )
 };
 
 export default AllVolunteers;

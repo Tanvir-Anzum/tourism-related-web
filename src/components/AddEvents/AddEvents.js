@@ -13,7 +13,7 @@ const AddEvents = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    data.email = user?.email;
+    // data.email = user?.email;
     fetch("http://localhost:5000/addEvent", {
       method: "POST",
       headers: { "content-type": "application/json" },
