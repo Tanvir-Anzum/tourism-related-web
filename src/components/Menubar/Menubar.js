@@ -33,11 +33,7 @@ const Menubar = () => {
                   Home
                 </Link>
               </li>
-              <li className='nav-item p-2'>
-                <Link className='nav-link p-2' to='/Donation'>
-                  Donation
-                </Link>
-              </li>
+             
               {/* <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
