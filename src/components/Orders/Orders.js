@@ -30,7 +30,7 @@ const Orders = () => {
 
    return (
      <div className='container'>
-       <h1>All Orders : {event.length}</h1>
+       <h3 className='mt-5'>All Orders : {event.length}</h3>
 
        <Table striped bordered hover>
          <thead>
