@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useFirebase from "../../Hook/useFirebase";
+import useAuth from "../../hooks/useAuth";
 import "./Menubar.css";
 // import logo from "../../../images/Banner&Background/logo.png";
-// import useFirebase from './../../Hook/useFirebase';
+
 
 const Menubar = () => {
   // const { user } = useFirebase();
-  const { user, handleLogout } = useFirebase();
+  const { user, handleLogout } = useAuth()
   return (
-    <div>
-      <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-        <div class='container-fluid'>
-          <a class='navbar-brand' href='#'>
+    <div className='container-fluid '>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-dark mb-3 '>
+        <div className='container-fluid'>
+          {/* <a className='navbar-brand' href='#'>
             Navbar
-          </a>
-          <button
-            class='navbar-toggler'
+          </a> */}
+          {/* <button
+            className='navbar-toggler'
             type='button'
             data-bs-toggle='collapse'
             data-bs-target='#navbarSupportedContent'
@@ -24,23 +24,23 @@ const Menubar = () => {
             aria-expanded='false'
             aria-label='Toggle navigation'
           >
-            <span class='navbar-toggler-icon'></span>
-          </button>
-          <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-              <li className='items p-2'>
-                <Link className='items p-2' to='/home'>
+            <span className='navbar-toggler-icon'></span>
+          </button> */}
+          <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+            <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
+              <li className='nav-item p-2 nav-link active'>
+                <Link className='nav-link p-2' to='/home'>
                   Home
                 </Link>
               </li>
-              <li className='items p-2'>
-                <Link className='items p-2' to='/Donation'>
+              <li className='nav-item p-2'>
+                <Link className='nav-link p-2' to='/Donation'>
                   Donation
                 </Link>
               </li>
-              {/* <li class='nav-item dropdown'>
+              {/* <li className='nav-item dropdown'>
                 <a
-                  class='nav-link dropdown-toggle'
+                  className='nav-link dropdown-toggle'
                   href='#'
                   id='navbarDropdown'
                   role='button'
@@ -49,21 +49,26 @@ const Menubar = () => {
                 >
                   Dropdown
                 </a> */}
-              {/* <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+              {/* <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a className="dropdown-item" href="#">Action</a></li>
+            <li><a className="dropdown-item" href="#">Another action</a></li>
+            <li><hr className="dropdown-divider"></li>
+            <li><a className="dropdown-item" href="#">Something else here</a></li>
           </ul> */}
               {/* </li> */}
-              <li className='items p-2'>
-                <Link className='items p-2' to='/orders'>
+              <li className='nav-item p-2'>
+                <Link className='nav-link p-2' to='/orders'>
                   Orders
                 </Link>
               </li>
-              <li className='items p-2'>
-                <Link className='items p-2' to='/myEvents'>
+              <li className='nav-item p-2'>
+                <Link className='nav-link p-2' to='/myEvents'>
                   myEvents
+                </Link>
+              </li>
+              <li className='nav-item p-2'>
+                <Link className='nav-link p-2' to='/services'>
+                  Services
                 </Link>
               </li>
               <Link to='/adminDashboard'>
@@ -73,7 +78,7 @@ const Menubar = () => {
                 <Link to='/admin'>
                   <button
                     onClick={handleLogout}
-                    className='items btn btn-info p-1 '
+                    className='nav-item btn btn-info p-1 '
                   >
                     Logout
                   </button>
@@ -83,22 +88,24 @@ const Menubar = () => {
                   <button className='items btn btn-info p-1 '>Register</button>
                 </Link>
               )}
+              <Link className='nav-link' to='/admin'>
+                <li className=''>{user?.email}</li>
+              </Link>
             </ul>
-            <form class='d-flex'>
+            <form className='d-flex'>
               <input
-                class='form-control me-2'
+                className='form-control me-2'
                 type='search'
                 placeholder='Search'
                 aria-label='Search'
               />
-              <button class='btn btn-outline-success' type='submit'>
+              <button className='btn btn-outline-success' type='submit'>
                 Search
               </button>
             </form>
           </div>
         </div>
       </nav>
-      
     </div>
   )
 };

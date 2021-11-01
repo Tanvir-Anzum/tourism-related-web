@@ -1,10 +1,11 @@
 import React from "react";
 import "./AddEvents.css";
 import { useForm } from "react-hook-form";
-import useFirebase from "../../Hook/useFirebase";
+
+import useAuth from "../../hooks/useAuth";
 
 const AddEvents = () => {
-  const { user } = useFirebase();
+  const { user } = useAuth()
   const {
     register,
     handleSubmit,
@@ -25,7 +26,7 @@ const AddEvents = () => {
   };
   return (
     <div>
-      <h1 className="mt-5 text-center text-info">Please Add Events</h1>
+      <h1 className="mt-5 text-center text-info">Please Add Orders</h1>
       <div className="login-box w-25 m-auto mt-5">
         <div className="event-box border border d-flex justify-content-center align-items-center">
           <div className="login-form">
@@ -35,14 +36,7 @@ const AddEvents = () => {
                 placeholder="title"
                 className="p-2 m-2 w-100"
               />
-              <br />
-              <input
-                {...register("date")}
-                // placeholder="Name"
-                type="date"
-                className="p-2 m-2 w-100"
-              />
-              <br />
+             
               <input
                 {...register("description")}
                 placeholder="Description"
@@ -57,15 +51,7 @@ const AddEvents = () => {
                 className="p-2 m-2"
                 className="p-2 m-2 w-100"
               />
-              <br />
-              <select {...register("EventColor")} className="p-2 m-2 w-100">
-                <option value="red">red</option>
-                <option value="green">green</option>
-                <option value="blue">blue</option>
-                <option value="orange">orange</option>
-                <option value="black">black</option>
-              </select>
-              <br />
+             
 
               {errors.exampleRequired && <span>This field is required</span>}
 

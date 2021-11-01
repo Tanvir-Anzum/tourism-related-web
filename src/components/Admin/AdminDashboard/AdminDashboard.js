@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import AddEvents from "../../AddEvents/AddEvents";
 import "./AdminDashboard.css";
 import Events from "./../../Events/Events";
-import AllVolunteers from "./../AllVolunteers/AllVolunteers";
-// import AddEvents from "./../../AddEvents/AddEvents";
+import Orders from "../../Orders/Orders";
+
 
 const AdminDashboard = () => {
-  const [control, setControl] = useState("allVolunteers");
+  const [control, setControl] = useState("orders");
 
   console.log(control);
   return (
@@ -19,30 +19,24 @@ const AdminDashboard = () => {
                 <h6>Dashboard</h6>
                 <div className="all-menu mt-5">
                   <li
-                    onClick={() => setControl("allVolunteers")}
+                    onClick={() => setControl("orders")}
                     className="admin-menu p-2"
                   >
-                    All Volunteers
+                    Orders
                   </li>
                   <li
-                    onClick={() => setControl("addEvents")}
+                    onClick={() => setControl("addService")}
                     className="admin-menu p-2"
                   >
-                    Add Events
+                    Add Service
                   </li>
-                  <li
-                    onClick={() => setControl("allEvents")}
-                    className="admin-menu p-2"
-                  >
-                    Manage Events
-                  </li>
+                  
                 </div>
               </div>
             </div>
             <div className="col-md-9 text-center  text-center">
-              {control === "allVolunteers" && <AllVolunteers></AllVolunteers>}
-              {control === "allEvents" && <Events></Events>}
-              {control === "addEvents" && <AddEvents></AddEvents>}
+              {control === "orders" && <Orders></Orders>}
+              {control === "addService" && <AddEvents></AddEvents> }
             </div>
           </div>
         </div>

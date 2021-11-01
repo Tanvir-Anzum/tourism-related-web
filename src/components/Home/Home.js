@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Placed from "../Placed/Placed";
-import "./Home.css";
+import tourism from '../../Images/tourism.jpg'
+import Placed from '../Placed/Placed'
+import './Home.css'
 
 const Home = () => {
   const [event, setEvent] = useState([])
@@ -26,15 +27,30 @@ const Home = () => {
   console.log(search);
   console.log(event);
   return (
-    <div>
-      <div className='users'>
+    <div className='container-fluid '>
+      <div className='d-flex align-items-center row background'>
+        <div className='col-sm-12 col-md-6'>
+          <h1>Begin Your Journey With Us</h1>
+          <h5>
+            We are providing high quality service with low cost.We are commited
+            to provide you the best service.
+          </h5>
+          <button className='btn btn-primary'>Learn More</button>
+        </div>
+        <div className='col-sm-12 col-md-6'>
+          <img className='img-fluid' src={tourism} alt='' />
+        </div>
+      </div>
+      <h3 className='mt-5 mb-5'>Our Services</h3>
+      <div className='row'>
         {event.map((user) => (
-          <li>
+          <div className='users col-sm-12 col-md-6 mb-3'>
             <Placed ser={user}></Placed>
-          </li>
+          </div>
         ))}
       </div>
-      <div className='events-container'>
+
+        {/* <div className='events-container'>
         <div className='row container'>
           {events?.map((pd) => (
             <div className='col-md-4'>
@@ -52,8 +68,8 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </div>  */}
+    </div> 
   )
 };
 

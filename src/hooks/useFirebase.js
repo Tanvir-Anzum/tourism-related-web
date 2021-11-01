@@ -1,4 +1,4 @@
-import intializeFirebase from "./../Firebase/Firebase.init";
+import intializeFirebase from './../Firebase/Firebase.init'
 import {
   getAuth,
   signInWithPopup,
@@ -8,52 +8,55 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from "firebase/auth";
+} from 'firebase/auth'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
-intializeFirebase();
+intializeFirebase()
 
 const useFirebase = () => {
-  const auth = getAuth();
-  const provider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
+  const auth = getAuth()
+      const [isLoading, setIsLoading] = useState(true)
 
-  const [user, setUser] = useState({});
-  const [error, setError] = useState("");
+
+  const provider = new GoogleAuthProvider()
+
+  const githubProvider = new GithubAuthProvider()
+
+  const [user, setUser] = useState({})
+  const [error, setError] = useState('')
 
   const handleGoogleLogin = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        setUser(result.user);
-        
-        // console.log(result.user);
-        setError("");
-      })
-      .catch((error) => setError(error.message));
-  };
+        setUser(result.user)
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        const uid = user.uid;
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  }, []);
+        // console.log(result.user);
+        // setError('')
+      })
+      .finally(() => setIsLoading(false))
+  }
+
+   useEffect(() => {
+     const unsubscribed = onAuthStateChanged(auth, (user) => {
+       if (user) {
+         setUser(user)
+       } else {
+         setUser({})
+       }
+       setIsLoading(false)
+     })
+     return () => unsubscribed
+   }, [])
 
   const handleLogout = () => {
-    signOut(auth)
-      .then(() => {
-        setUser({});
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+      const logOut = () => {
+        setIsLoading(true)
+        signOut(auth)
+          .then(() => {})
+          .finally(() => setIsLoading(false))
+      }
+  }
 
   // const handleGithubLogin = () => {
   //   signInWithPopup(auth, githubProvider)
@@ -75,7 +78,9 @@ const useFirebase = () => {
   //       const errorMessage = error.message;
   //     });
   // };
-
+  const signInUsingGoogle = () => {
+    return signInWithPopup(auth, provider)
+  }
   // const handleUserLogin = (email, password) => {
   //   signInWithEmailAndPassword(auth, email, password)
   //     .then((result) => {
@@ -89,8 +94,10 @@ const useFirebase = () => {
   return {
     handleGoogleLogin,
     user,
+    isLoading,
     handleLogout,
-  };
-};
+    signInUsingGoogle
+  }
+}
 
-export default useFirebase;
+export default useFirebase

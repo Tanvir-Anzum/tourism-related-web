@@ -9,7 +9,7 @@ const Orders = () => {
      fetch('http://localhost:5000/allEvents')
        .then((res) => res.json())
        .then((data) => setEvent(data))
-   }, [])
+   }, [control])
 
    const handleDelete = (id) => {
      fetch(`http://localhost:5000/deleteEvent/${id}`, {
@@ -51,7 +51,7 @@ const Orders = () => {
                <td>{pd.image}</td>
                <button
                  onClick={() => handleDelete(pd._id)}
-                 className='btn bg-danger p-2'
+                 className='btn bg-warning p-2'
                >
                  Delete
                </button>

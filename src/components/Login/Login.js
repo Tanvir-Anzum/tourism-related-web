@@ -1,26 +1,36 @@
 import React from "react";
+
+import { Link, useLocation, useHistory } from 'react-router-dom'
 import "./Login.css";
-import useFirebase from "./../../Hook/useFirebase";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
-  const { handleGoogleLogin } = useFirebase();
+  const { signInUsingGoogle } = useAuth()
   // console.log(handleGoogleLogin());
+   const location = useLocation()
+   
+   const history = useHistory()
+   const redirect_uri = location.state?.from || '/home'
+  
+   console.log(redirect_uri)
+   const handleGoogleLogin = () => {
+     signInUsingGoogle().then((result) => {
+       history.push(redirect_uri)
+      // history.push('/orders')
+      //  console.log(redirect_uri)
+      //  console.log(result)
+     })
+   }
 
   return (
     <div>
-      <div className="logo">
-        <img
-          className="p-2 w-25 mb-5"
-          src="https://i.ibb.co/QvMLCj4/Group-1329.png"
-          alt=""
-        />
+      <div className='d-flex justify-content-center mt-5 pt-5 mb-5 text-primary'>
+        <h1>Please Log In</h1>
       </div>
       <div className="login-box w-25 m-auto">
-        <div className="box border border d-flex justify-content-center align-items-center">
-          <button onClick={handleGoogleLogin} className="btn w-75  btn-warning">
-            Login
-          </button>
-        </div>
+         <button className='btn btn-primary' onClick={handleGoogleLogin}>
+       Google Sign In
+     </button>
       </div>
     </div>
   );
