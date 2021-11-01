@@ -63,7 +63,7 @@ const Menubar = () => {
               </li>
               <li className='nav-item p-2'>
                 <Link className='nav-link p-2' to='/myEvents'>
-                  myEvents
+                  myServices
                 </Link>
               </li>
               <li className='nav-item p-2'>

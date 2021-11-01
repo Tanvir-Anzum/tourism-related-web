@@ -59,7 +59,7 @@ const MyEvents = () => {
   // console.log(events);
   return (
     <div className='responsive'>
-      <h1>My events : {events.length}</h1>
+      <h1>My Services : {events.length}</h1>
       <Table striped bordered hover>
         <thead>
           <tr>
