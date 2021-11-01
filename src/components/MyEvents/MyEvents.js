@@ -31,22 +31,22 @@ const MyEvents = () => {
   console.log(user.email)
  
    const handleDelete = (id) => {
-     fetch(`http://localhost:5000/deleteOrder/${id}`, {
-       method: 'DELETE',
-       headers: { 'content-type': 'application/json' },
-   })
-       .then((res) => res.json())
-       .then((data) => {
-         if (data.deletedCount) {
-           console.log(data.deletedCount)
-           setConrol(!control)
-         } else {
-           console.log(data.deletedCount)
-           setConrol(false)
-         }
-       })}
+  //    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+  //      method: 'DELETE',
+  //      headers: { 'content-type': 'application/json' },
+  //  })
+  //      .then((res) => res.json())
+  //      .then((data) => {
+  //        if (data.deletedCount) {
+  //          console.log(data.deletedCount)
+  //          setConrol(!control)
+  //        } else {
+  //          console.log(data.deletedCount)
+  //          setConrol(false)
+  //        }
+      //  })}
   //    console.log(id)
-  //  }
+   }
 
 
   // useEffect(() => {
