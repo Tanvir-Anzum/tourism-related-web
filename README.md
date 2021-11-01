@@ -13,6 +13,6 @@ Our website includes the following features
 => If the user clicks on a service,it will show detailed information about the product.There is a section called 'admin'.
 => The user can click the order button,if s/he wants to proceed he can confirm it and the order will be added in his/her order section.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [Live Website](https://new-simple-3bf2b.web.app/).
 
 
