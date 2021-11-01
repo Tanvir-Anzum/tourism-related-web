@@ -1,5 +1,6 @@
 footer{
  width: 100%;
+ margin-top: 70px;
  padding: 30px 0 30px;
  background: black;
  color: honeydew;
@@ -43,4 +44,7 @@ li{
 #twitter,#facebook,#instagram,#linkedIn{
  width: 33px;
  height: 33px;
+}
+.margin{
+ margin-top: 40px;
 }

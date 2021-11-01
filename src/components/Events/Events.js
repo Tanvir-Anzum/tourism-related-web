@@ -9,9 +9,9 @@ const Events = () => {
   const [control, setConrol] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allEvents")
+    fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
       .then((res) => res.json())
-      .then((data) => setEvent(data));
+      .then((data) => setEvent(data))
   }, []);
 
    
@@ -19,19 +19,19 @@ const Events = () => {
   
  
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteEvent/${id}`, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
+    fetch(`https://haunted-hollow-48244.herokuapp.com/deleteEvent/${id}`, {
+      method: 'DELETE',
+      headers: { 'content-type': 'application/json' },
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
           console.log(data.deletedCount)
-          setConrol(!control);
+          setConrol(!control)
         } else {
-          setConrol(false);
+          setConrol(false)
         }
-      });
+      })
     console.log(id);
   };
 

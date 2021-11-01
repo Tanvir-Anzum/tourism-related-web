@@ -7,6 +7,23 @@
   background-color: rgb(248, 244, 244)
   /* height: 360px; */
  } 
+#one,#two,#three{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+#color{
+  color: orange;
+}
+#bottom{
+  margin-bottom: 120px;
+}
 img{
   width: 100%;
+}
+#first,#second,#third{
+      box-shadow: rgb(17 17 26 / 10%) 0 0 16px;
+      border-radius: 20px;
+      /* height: 900px; */
+      /* background-color: teal; */
 }

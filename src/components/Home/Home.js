@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import tourism from '../../Images/tourism.jpg'
+import reviewerOne from '../../Images/reviewerOne.png'
+import reviewerTwo from '../../Images/reviewerTwo.png'
+import reviewerThree from '../../Images/reviewerThree.png'
 import Placed from '../Placed/Placed'
 import './Home.css'
 
@@ -12,14 +15,16 @@ const Home = () => {
     setSearch(e.target.value);
   };
   useEffect(() => {
-    fetch('http://localhost:5000/allEvents')
+    fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
       .then((res) => res.json())
       .then((data) => setEvent(data))
   }, [])
   const handleSearch = () => {
-    fetch(`http://localhost:5000/searchEvent?search=${search}`)
+    fetch(
+      `https://haunted-hollow-48244.herokuapp.com/searchEvent?search=${search}`
+    )
       .then((res) => res.json())
-      .then((result) => setEvents(result));
+      .then((result) => setEvents(result))
 
     console.log("hello bro");
   };
@@ -27,7 +32,7 @@ const Home = () => {
   console.log(search);
   console.log(event);
   return (
-    <div className='container-fluid '>
+    <div className='container-fluid mb-5'>
       <div className='d-flex align-items-center row background'>
         <div className='col-sm-12 col-md-6'>
           <h1>Begin Your Journey With Us</h1>
@@ -50,7 +55,7 @@ const Home = () => {
         ))}
       </div>
 
-        {/* <div className='events-container'>
+      {/* <div className='events-container'>
         <div className='row container'>
           {events?.map((pd) => (
             <div className='col-md-4'>
@@ -69,7 +74,60 @@ const Home = () => {
           ))}
         </div>
       </div>  */}
-    </div> 
+      <div id='bottom' className='mb-5 pb-5 pt-5'>
+        <h3 id='color' className='d-flex justify-content-center'>Travellers Say</h3>
+        <div className='d-flex justify-content-center'>
+          <h1 className='w-75 pb-5'>What Our Traveller Say About Us</h1>
+        </div>
+        <div className='d-flex row'>
+          <div className='box col '>
+            <div id='first' className='pt-5 pb-5'>
+              <img id='one' src={reviewerOne} alt='' />
+              <div>
+                <h5>Traveller</h5>
+                <div className='d-flex justify-content-center'>
+                  <p className='w-75'>
+                    I love travelling the most to be honest.I want to see the
+                    world.EarthTrip has really done a great job in this regarf.I
+                    hope they do better.I have best wishes for them.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='box col'>
+            <div id='second' className='pt-5 pb-5'>
+              <img id='two' src={reviewerTwo} alt='' />
+              <div>
+                <h5>Traveller</h5>
+                <div className='d-flex justify-content-center'>
+                  <p className='w-75'>
+                    EarthTrip made my dream come true.I want to see my country
+                    more closely.Their service is also great.They are really
+                    dedicated,I must say.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='box col'>
+            <div id='third' className='pt-5 pb-5'>
+              <img id='three' src={reviewerThree} alt='' />
+              <div>
+                <h5>Traveller</h5>
+                <div className='d-flex justify-content-center'>
+                  <p className='w-75'>
+                    I had passions for travelling from an early age.EarthTrip
+                    really helped me a lot to make it true.I thank them from the
+                    core of my heart for their services.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 };
 

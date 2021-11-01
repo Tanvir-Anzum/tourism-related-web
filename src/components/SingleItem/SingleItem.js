@@ -8,7 +8,7 @@ const SingleItem = () => {
  const [item, setItem] = useState({})
  item.email = user?.email
  useEffect(() =>{
-  fetch(`http://localhost:5000/singleItem/${itemId}`)
+  fetch(`https://haunted-hollow-48244.herokuapp.com/singleItem/${itemId}`)
     .then((res) => res.json())
     .then((data) => setItem(data))
  },[])
@@ -19,7 +19,7 @@ const SingleItem = () => {
       )
         // const response = confirm('are you sure to proceed?')
         if(confirmBox === true){
-          fetch('http://localhost:5000/orders', {
+          fetch('https://haunted-hollow-48244.herokuapp.com/orders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(item),

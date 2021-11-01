@@ -4,7 +4,7 @@ import PlacedServices from '../PlacedServices/PlacedServices';
 const Services = () => {
  const [event, setEvent] = useState([])
    useEffect(() => {
-     fetch('http://localhost:5000/allEvents')
+     fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
        .then((res) => res.json())
        .then((data) => setEvent(data))
    }, [])

@@ -6,13 +6,13 @@ const Orders = () => {
    const [control, setConrol] = useState(false)
 
    useEffect(() => {
-     fetch('http://localhost:5000/allEvents')
+     fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
        .then((res) => res.json())
        .then((data) => setEvent(data))
    }, [control])
 
    const handleDelete = (id) => {
-     fetch(`http://localhost:5000/deleteEvent/${id}`, {
+     fetch(`https://haunted-hollow-48244.herokuapp.com/deleteEvent/${id}`, {
        method: 'DELETE',
        headers: { 'content-type': 'application/json' },
      })

@@ -15,13 +15,13 @@ const AddEvents = () => {
 
   const onSubmit = (data) => {
     // data.email = user?.email;
-    fetch("http://localhost:5000/addEvent", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
+    fetch('https://haunted-hollow-48244.herokuapp.com/addEvent', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => console.log(result))
     console.log(data);
   };
   return (

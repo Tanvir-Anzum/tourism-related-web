@@ -7,7 +7,7 @@ import './MyEvents.css'
 const MyEvents = () => {
   // const { user } = useFirebase();
   // const [events, setEvents] = useState([]);
-  //   // fetch("http://localhost:5000/addEvent", {
+  //   fetch("http://localhost:5000/addEvent", {
   //   //   method: "POST",
   //   //   headers: { "content-type": "application/json" },
   //   //   body: JSON.stringify(data),
@@ -21,9 +21,9 @@ const MyEvents = () => {
 
   useEffect(() => {
     // fetch(`http://localhost:5000/orders/${myUser}`)
-    fetch(`http://localhost:5000/orders/${user?.email}`)
+    fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)
       .then((res) => res.json())
-     .then((data) => setEvents(data))
+      .then((data) => setEvents(data))
   }, [user?.email])
  
   console.log(events)

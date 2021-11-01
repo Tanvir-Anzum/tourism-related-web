@@ -12,7 +12,7 @@ import './Footer.css'
 
 const Footer = () => {
   return (
-    <div className='mt-5'>
+    <div className='mt-5 pt-5 margin'>
       <footer>
         <h1>Join Our Newsletter</h1>
         <p>Serving successfully for more than 12 years</p>
