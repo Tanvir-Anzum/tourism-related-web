@@ -2,7 +2,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 } */
-
+#lower-space{
+  margin-bottom: 100px;
+}
 .background{ 
   background-color: rgb(248, 244, 244)
   /* height: 360px; */

@@ -21,6 +21,7 @@ const MyEvents = () => {
 
   useEffect(() => {
     // fetch(`http://localhost:5000/orders/${myUser}`)
+    // fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)
     fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setEvents(data))
@@ -64,9 +65,10 @@ const MyEvents = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Event Title</th>
-            <th>Event description</th>
-            <th>Image Link</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>City</th>
+            {/* <th>Image Link</th> */}
             <th>Action</th>
           </tr>
         </thead>
@@ -74,9 +76,10 @@ const MyEvents = () => {
           <tbody>
             <tr>
               <td>{index}</td>
-              <td>{pd.title}</td>
-              <td>{pd.description}</td>
-              <td>{pd.image.slice(0, 20)}</td>
+              <td>{pd.name}</td>
+              <td>{pd.email}</td>
+              <td>{pd.city}</td>
+              {/* <td>{pd.image.slice(0, 20)}</td> */}
               <button
                 onClick={() => handleDelete(pd._id)}
                 className='btn bg-warning p-2'

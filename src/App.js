@@ -15,7 +15,8 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AuthProvider from "./Context/AuthProvider";
 import PlacedServices from "./components/PlacedServices/PlacedServices";
 import Services from "./components/Services/Services";
-import Footer from "./Footer/Footer";
+import Footer from "./components/Footer/Footer";
+import Placed from "./components/Placed/Placed";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <PrivateRoute exact path='/myEvents'>
               <MyEvents></MyEvents>
             </PrivateRoute>
+            
             <PrivateRoute exact path='/orders'>
               <Orders></Orders>
             </PrivateRoute>
@@ -45,9 +47,9 @@ function App() {
             <PrivateRoute exact path='/addEvents'>
               <AddEvents></AddEvents>
             </PrivateRoute>
-            <Route path='/singleItem/:itemId'>
+            <PrivateRoute path='/singleItem/:itemId'>
               <SingleItem></SingleItem>
-            </Route>
+            </PrivateRoute>
             <Route exact path='/adminDashboard'>
               <AdminDashboard></AdminDashboard>
             </Route>

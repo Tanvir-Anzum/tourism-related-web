@@ -27,7 +27,7 @@ const Home = () => {
       .then((result) => setEvents(result))
 
     console.log("hello bro");
-  };
+  }; 
 
   console.log(search);
   console.log(event);
@@ -75,12 +75,14 @@ const Home = () => {
         </div>
       </div>  */}
       <div id='bottom' className='mb-5 pb-5 pt-5'>
-        <h3 id='color' className='d-flex justify-content-center'>Travellers Say</h3>
+        <h3 id='color' className='d-flex justify-content-center'>
+          Travellers Say
+        </h3>
         <div className='d-flex justify-content-center'>
-          <h1 className='w-75 pb-5'>What Our Traveller Say About Us</h1>
+          <h1 className='w-75 pb-3'>What Our Traveller Say About Us</h1>
         </div>
         <div className='d-flex row'>
-          <div className='box col '>
+          <div id='lower-space' className='box col '>
             <div id='first' className='pt-5 pb-5'>
               <img id='one' src={reviewerOne} alt='' />
               <div>

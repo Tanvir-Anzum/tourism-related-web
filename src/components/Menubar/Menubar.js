@@ -7,7 +7,7 @@ import "./Menubar.css";
 
 const Menubar = () => {
   // const { user } = useFirebase();
-  const { user, handleLogout } = useAuth()
+  const { user, logOut } = useAuth()
   return (
     <div className='container-fluid '>
       <nav className='navbar navbar-expand-lg navbar-dark bg-dark mb-3 '>
@@ -33,7 +33,6 @@ const Menubar = () => {
                   Home
                 </Link>
               </li>
-             
               {/* <li className='nav-item dropdown'>
                 <a
                   className='nav-link dropdown-toggle'
@@ -54,12 +53,12 @@ const Menubar = () => {
               {/* </li> */}
               <li className='nav-item p-2'>
                 <Link className='nav-link p-2' to='/orders'>
-                  Orders
+                  Manage Orders
                 </Link>
               </li>
               <li className='nav-item p-2'>
-                <Link className='nav-link p-2' to='/myEvents'>
-                  myServices
+                <Link className='nav-link p-2' to='/MyEvents'>
+                  myOrders
                 </Link>
               </li>
               <li className='nav-item p-2'>
@@ -70,17 +69,31 @@ const Menubar = () => {
               <Link to='/adminDashboard'>
                 <button className='items btn btn-primary p-1 '>Admin</button>
               </Link>
-              {user.email ? (
-                <Link to='/admin'>
+              {/* {user.email ? (
+                <Link className='nav-link p-2'>
                   <button
-                    onClick={handleLogout}
-                    className='nav-item btn btn-info p-1 '
+                    onClick={logOut}
+                    className='nav-item btn btn-warning p-1 '
                   >
                     Logout
                   </button>
                 </Link>
               ) : (
-                <Link to='/registerVolunteer'>
+                <Link to='/login'>
+                  <button className='items btn btn-info p-1 '>Register</button>
+                </Link>
+              )} */}
+              {user?.email ? (
+               
+                <button
+                  className='nav-item btn btn-warning p-1 '
+                  onClick={logOut}
+                >
+                  Logout
+                </button>
+                
+              ) : (
+                <Link to='/login'>
                   <button className='items btn btn-info p-1 '>Register</button>
                 </Link>
               )}

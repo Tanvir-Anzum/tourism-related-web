@@ -10,7 +10,7 @@ const Placed = (props) => {
      <p>{title}</p>
      <h5>{description}</h5>
      <Link to={`/singleItem/${_id}`}>
-       <button className='btn btn-danger'>place order</button>
+       <button className='btn btn-danger'>Details</button>
      </Link>
    </div>
  )

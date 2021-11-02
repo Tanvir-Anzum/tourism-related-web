@@ -49,14 +49,16 @@ const useFirebase = () => {
      return () => unsubscribed
    }, [])
 
-  const handleLogout = () => {
-      const logOut = () => {
-        setIsLoading(true)
-        signOut(auth)
-          .then(() => {})
-          .finally(() => setIsLoading(false))
-      }
-  }
+  // const handleLogout = () => {
+       const logOut = () => {
+         setIsLoading(true)
+         signOut(auth)
+           .then(() => {
+            //  setUser({})
+           })
+           .finally(() => setIsLoading(false))
+       }
+  // }
 
   // const handleGithubLogin = () => {
   //   signInWithPopup(auth, githubProvider)
@@ -95,8 +97,9 @@ const useFirebase = () => {
     handleGoogleLogin,
     user,
     isLoading,
-    handleLogout,
-    signInUsingGoogle
+    // handleLogout,
+    signInUsingGoogle,
+    logOut
   }
 }
 
