@@ -27,7 +27,7 @@ const Login = () => {
       <div className='d-flex justify-content-center mt-5 pt-5 mb-5 text-primary'>
         <h1>Please Log In</h1>
       </div>
-      <div className="login-box w-25 m-auto">
+      <div className="login-box w-25 m-auto mb-5 pb-5">
          <button className='btn btn-primary' onClick={handleGoogleLogin}>
        Google Sign In
      </button>

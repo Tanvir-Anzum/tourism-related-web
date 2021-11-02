@@ -50,9 +50,9 @@ function App() {
             <PrivateRoute path='/singleItem/:itemId'>
               <SingleItem></SingleItem>
             </PrivateRoute>
-            <Route exact path='/adminDashboard'>
+            <PrivateRoute exact path='/adminDashboard'>
               <AdminDashboard></AdminDashboard>
-            </Route>
+            </PrivateRoute>
           </Switch>
           <Footer></Footer>
         </Router>
