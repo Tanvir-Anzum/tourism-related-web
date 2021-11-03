@@ -44,7 +44,7 @@ const SingleItem = () => {
  console.log(item)
  return (
    <div className='d-flex row'>
-     <div className='col-6'>
+     <div className='col-sm-12 col-md-6'>
        <div className='login-box w-50 m-auto mt'>
          <div className='event-box border border d-flex justify-content-center align-items-center'>
            <div className='login-form'></div>
@@ -67,7 +67,7 @@ const SingleItem = () => {
                className='p-2 m-2'
                className='p-2 m-2 w-100'
              />
-          
+
              <br />
 
              {/* <input */}
@@ -89,7 +89,7 @@ const SingleItem = () => {
      </div>
      {/* <p>This is {itemId} </p> */}
      {/* <div> */}
-     <div className='col-6'>
+     <div className='col-sm-12 col-md-6'>
        <div className='d-flex justify-content-center mt'>
          <img className='w-50' src={item.image} alt='' />
        </div>
