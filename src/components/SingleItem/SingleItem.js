@@ -37,7 +37,7 @@ const SingleItem = () => {
    // const response = confirm('are you sure to proceed?')
    if (confirmBox === true) {
     //  fetch('http://haunted-hollow-48244.herokuapp.com/singleItem/orders', {
-     fetch('http://haunted-hollow-48244.herokuapp.com/orders', {
+     fetch('https://haunted-hollow-48244.herokuapp.com/orders', {
        method: 'POST',
        headers: { 'content-type': 'application/json' },
        body: JSON.stringify(got),
