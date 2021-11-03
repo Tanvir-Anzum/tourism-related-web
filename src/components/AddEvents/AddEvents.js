@@ -22,7 +22,9 @@ const AddEvents = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result))
-    console.log(data);
+      .then((data) => console.log(data))
+      console.log("hi")
+    // console.log(data);
   };
   return (
     <div>

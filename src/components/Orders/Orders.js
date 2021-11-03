@@ -6,30 +6,27 @@ const Orders = () => {
    const [control, setConrol] = useState(false)
 
    useEffect(() => {
-    //  fetch('https://haunted-hollow-48244.herokuapp.com/orders')
      fetch('https://haunted-hollow-48244.herokuapp.com/orders')
+    //  fetch('https://localhost:5000/orders')
        .then((res) => res.json())
        .then((data) => setOrder(data))
    }, [control])
 
    const handleDelete = (id) => {
-    //  fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
-     fetch(`https://haunted-hollow-48244.herokuapp.com/${id}`, {
-       //  fetch(`https://localhost:5000/deleteEvent/${id}`, {
-       method: 'DELETE',
+  fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
+        method: 'DELETE',
        headers: { 'content-type': 'application/json' },
-     })
+      })
        .then((res) => res.json())
        .then((data) => {
-         if (data.deletedCount) {
+        if (data.deletedCount) {
            console.log(data.deletedCount)
-           setConrol(!control)
-         } else {
-           setConrol(false)
-         }
-       })
-     console.log(id)
-   }
+             setConrol(!control)
+          } else {
+         setConrol(false)
+        }
+        })}
+    
 
    return (
      <div className='container'>
@@ -38,9 +35,11 @@ const Orders = () => {
        <Table striped bordered hover>
          <thead>
            <tr>
-             <th>#</th>
-             <th>Name</th>
-             <th>Email</th>
+             {/* <th>#</th> */}
+             {/* <th>Service id</th> */}
+             <th>Service Name</th>
+             <th>User Name</th>
+             <th>User Email</th>
              <th>City</th>
              {/* <th>Image Link</th> */}
              <th>Action</th>
@@ -49,7 +48,8 @@ const Orders = () => {
          {order?.map((pd, index) => (
            <tbody>
              <tr>
-               <td>{index}</td>
+               {/* <td>{pd._id}</td> */}
+               <td>{pd.title}</td>
                <td>{pd.name}</td>
                <td>{pd.email}</td>
                <td>{pd.city}</td>

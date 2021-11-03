@@ -20,27 +20,32 @@ const SingleItem = () => {
     .then((data) => setItem(data))
  },[])
  const onSubmit = (data) => {
-  //  data.preventDefault()
-  // console.log(data)
-  // console.log(item)
-    item.name = data.name
-    item.city = data.city
-    item.email = data.email
-      const confirmBox = window.confirm(
-        'Are you sure you want to proceed?'
-      )
-        // const response = confirm('are you sure to proceed?')
-        if(confirmBox === true){
-          fetch('https://haunted-hollow-48244.herokuapp.com/orders', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(item),
-          })
-            .then((res) => res.json())
-            .then((result) => console.log(result))
-        
-        }
-      }
+   //  data.preventDefault()
+   // console.log(data)
+   const name = data.name
+   const city = data.city
+   const email = data.email
+   const title = item.title
+   const got = {
+     name, city, email, title,
+   }
+
+   console.log(got)
+   const confirmBox = window.confirm('Are you sure you want to proceed?')
+   // const response = confirm('are you sure to proceed?')
+   if (confirmBox === true) {
+     fetch('http://localhost:5000/orders', {
+       method: 'POST',
+       headers: { 'content-type': 'application/json' },
+       body: JSON.stringify(got),
+     })
+       .then((res) => res.json())
+       .then((result) => console.log(result))
+       .then((data) => console.log(data))
+     console.log('hi')
+     // console.log(data);
+   }
+ }
  console.log(item)
  return (
    <div className='d-flex row'>

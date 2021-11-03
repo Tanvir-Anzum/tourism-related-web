@@ -27,45 +27,32 @@ const MyEvents = () => {
       .then((data) => setEvents(data))
   }, [user?.email])
  
-  console.log(events)
-  console.log(events)
-  console.log(user.email)
- 
-   const handleDelete = (id) => {
-  //    fetch(`http://localhost:5000/deleteOrder/${id}`, {
-  //      method: 'DELETE',
-  //      headers: { 'content-type': 'application/json' },
-  //  })
-  //      .then((res) => res.json())
-  //      .then((data) => {
-  //        if (data.deletedCount) {
-  //          console.log(data.deletedCount)
-  //          setConrol(!control)
-  //        } else {
-  //          console.log(data.deletedCount)
-  //          setConrol(false)
-  //        }
-      //  })}
-  //    console.log(id)
-   }
+    const handleDelete = (id) => {
+      // fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
+      fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
+        method: 'DELETE',
+        headers: { 'content-type': 'application/json' },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            console.log(data.deletedCount)
+            setConrol(!control)
+          } else {
+            setConrol(false)
+          }
+        })
+    }
 
-
-  // useEffect(() => {
-  //   fetch(`http://localhost:5000/orders/${user?.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setEvents(data))
-  // }, [user.email])
-
-  // let container = events
-  // console.log(events);
   return (
     <div className='responsive'>
       <h3 className='mt-5 mb-5'>My Orders : {events.length}</h3>
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>Name</th>
+    
+            <th>Service Name</th>
+            <th>User Name</th>
             <th>Email</th>
             <th>City</th>
             {/* <th>Image Link</th> */}
@@ -75,7 +62,7 @@ const MyEvents = () => {
         {events.map((pd, index) => (
           <tbody>
             <tr>
-              <td>{index}</td>
+              <td>{pd.title}</td>
               <td>{pd.name}</td>
               <td>{pd.email}</td>
               <td>{pd.city}</td>
