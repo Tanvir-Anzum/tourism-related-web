@@ -15,7 +15,7 @@ const Menubar = () => {
           {/* <a className='navbar-brand' href='#'>
             Navbar
           </a> */}
-          {/* <button
+          <button
             className='navbar-toggler'
             type='button'
             data-bs-toggle='collapse'
@@ -25,7 +25,7 @@ const Menubar = () => {
             aria-label='Toggle navigation'
           >
             <span className='navbar-toggler-icon'></span>
-          </button> */}
+          </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item p-2 nav-link active'>
