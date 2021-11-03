@@ -25,16 +25,19 @@ const SingleItem = () => {
    const name = data.name
    const city = data.city
    const email = data.email
+   const description = item.description
    const title = item.title
+
    const got = {
-     name, city, email, title,
+     name, city, email, title, description
    }
 
    console.log(got)
    const confirmBox = window.confirm('Are you sure you want to proceed?')
    // const response = confirm('are you sure to proceed?')
    if (confirmBox === true) {
-     fetch('http://localhost:5000/orders', {
+    //  fetch('http://haunted-hollow-48244.herokuapp.com/singleItem/orders', {
+     fetch('http://haunted-hollow-48244.herokuapp.com/orders', {
        method: 'POST',
        headers: { 'content-type': 'application/json' },
        body: JSON.stringify(got),

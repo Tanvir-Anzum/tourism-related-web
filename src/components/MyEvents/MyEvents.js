@@ -52,8 +52,9 @@ const MyEvents = () => {
           <tr>
     
             <th>Service Name</th>
-            <th>User Name</th>
-            <th>Email</th>
+            <th>Service Description</th>
+            <th>My Name</th>
+            <th>My Email</th>
             <th>City</th>
             {/* <th>Image Link</th> */}
             <th>Action</th>
@@ -63,6 +64,7 @@ const MyEvents = () => {
           <tbody>
             <tr>
               <td>{pd.title}</td>
+              <td>{pd.description}</td>
               <td>{pd.name}</td>
               <td>{pd.email}</td>
               <td>{pd.city}</td>
