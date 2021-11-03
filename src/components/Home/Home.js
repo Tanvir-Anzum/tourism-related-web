@@ -74,16 +74,17 @@ const Home = () => {
           ))}
         </div>
       </div>  */}
-      <div id='bottom' className='mb-5 pb-5 pt-5'>
+      <div id='bottom' className='mb-5 pb-5 pt-5 '>
         <h3 id='color' className='d-flex justify-content-center'>
           Travellers Say
         </h3>
         <div className='d-flex justify-content-center'>
           <h1 className='w-75 pb-3'>What Our Traveller Say About Us</h1>
         </div>
-        <div className='d-flex row'>
-          <div id='lower-space' className='box col '>
-            <div id='first' className='pt-5 pb-5'>
+        <div className='container'>
+          <div className='row row-cols-sm-1 row-cols-md-3'>
+            {/* <div id='lower-space' className='box col '> */}
+            <div id='first' className='pt-5 col pb-5'>
               <img id='one' src={reviewerOne} alt='' />
               <div>
                 <h5>Traveller</h5>
@@ -93,12 +94,12 @@ const Home = () => {
                     world.EarthTrip has really done a great job in this regarf.I
                     hope they do better.I have best wishes for them.
                   </p>
+                  {/* </div> */}
                 </div>
               </div>
             </div>
-          </div>
-          <div className='box col'>
-            <div id='second' className='pt-5 pb-5'>
+            {/* <div className='box col'> */}
+            <div id='second' className='pt-5 col pb-5'>
               <img id='two' src={reviewerTwo} alt='' />
               <div>
                 <h5>Traveller</h5>
@@ -108,12 +109,12 @@ const Home = () => {
                     more closely.Their service is also great.They are really
                     dedicated,I must say.
                   </p>
+                  {/* </div> */}
                 </div>
               </div>
             </div>
-          </div>
-          <div className='box col'>
-            <div id='third' className='pt-5 pb-5'>
+            {/* <div className='box col'> */}
+            <div id='third' className='pt-5 pb-5 col'>
               <img id='three' src={reviewerThree} alt='' />
               <div>
                 <h5>Traveller</h5>
@@ -123,6 +124,7 @@ const Home = () => {
                     really helped me a lot to make it true.I thank them from the
                     core of my heart for their services.
                   </p>
+                  {/* </div> */}
                 </div>
               </div>
             </div>

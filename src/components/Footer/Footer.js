@@ -16,8 +16,8 @@ const Footer = () => {
       <footer id='footer'>
         <h1>Join Our Newsletter</h1>
         <p>Serving successfully for more than 12 years</p>
-        <div className='my-row'>
-          <div className='my-col'>
+        <div className='row'>
+          <div className='col-md-3 '>
             <h1>EarthTrip</h1>
             <p>
               Our aim is to provide quality services and make
@@ -36,7 +36,7 @@ const Footer = () => {
               <FontAwesomeIcon id='linkedIn' icon={faLinkedin} />
             </span>
           </div>
-          <div className='my-col'>
+          <div className='col-md-3'>
             <h4 className='mt-3'>Quick Links</h4>
             <ul>
               <li>Home</li>
@@ -45,7 +45,7 @@ const Footer = () => {
               <li>About Us</li>
             </ul>
           </div>
-          <div className='my-col'>
+          <div className='col-md-3'>
             <h4 className='mt-3'>Useful Links</h4>
             <ul>
               <li>Premises</li>
@@ -53,7 +53,7 @@ const Footer = () => {
               <li>Specialities</li>
             </ul>
           </div>
-          <div className='my-col'>
+          <div className='col-md-3'>
             <h4 className='mt-3'>Contact Us</h4>
             <ul>
               <li>b21,GHK street,Mirpur,Dhaka</li>
