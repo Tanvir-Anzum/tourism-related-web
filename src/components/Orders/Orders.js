@@ -19,7 +19,7 @@ const Orders = () => {
       // if (confirmBox === true) {
       fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${id}`, {
         method: 'DELETE',
-        headers: { 'content-type': 'application/json' },
+       
       })
         .then((res) => res.json())
         .then((data) => {
