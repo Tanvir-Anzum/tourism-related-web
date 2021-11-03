@@ -12,20 +12,25 @@ const Orders = () => {
        .then((data) => setOrder(data))
    }, [control])
 
-   const handleDelete = (id) => {
-  fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
+   
+  //  // const response = confirm('are you sure to proceed?')
+    const handleDelete = (id) => {
+      const confirmBox = window.confirm('Are you sure you want to delete?')
+      if (confirmBox === true) {
+      fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
         method: 'DELETE',
-       headers: { 'content-type': 'application/json' },
+        headers: { 'content-type': 'application/json' },
       })
-       .then((res) => res.json())
-       .then((data) => {
-        if (data.deletedCount) {
-           console.log(data.deletedCount)
-             setConrol(!control)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount) {
+            console.log(data.deletedCount)
+            setConrol(!control)
           } else {
-         setConrol(false)
-        }
+            setConrol(false)
+          }
         })}
+    }
     
 
    return (
