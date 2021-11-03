@@ -21,7 +21,7 @@ const MyEvents = () => {
 
   useEffect(() => {
     // fetch(`http://localhost:5000/orders/${myUser}`)
-    // fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)
+    // fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)/haunted-hollow-48244.herokuapp.com
     fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setEvents(data))

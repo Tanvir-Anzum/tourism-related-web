@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap'
 const Orders = () => {
    const [order, setOrder] = useState([])
 
-   const [control, setConrol] = useState(false)
+   const [control, setControl] = useState(false)
 
    useEffect(() => {
      fetch('https://haunted-hollow-48244.herokuapp.com/orders')
@@ -14,10 +14,10 @@ const Orders = () => {
 
    
   //  // const response = confirm('are you sure to proceed?')
-    const handleDelete = (id) => {
-      const confirmBox = window.confirm('Are you sure you want to delete?')
-      if (confirmBox === true) {
-      fetch(`https://haunted-hollow-48244.herokuapp.com/deleteOrder/${id}`, {
+    const handleDeleteUser = (id) => {
+      // const confirmBox = window.confirm('Are you sure you want to delete?')
+      // if (confirmBox === true) {
+      fetch(`http://haunted-hollow-48244.herokuapp.com <div className=""></div>/orders/${id}`, {
         method: 'DELETE',
         headers: { 'content-type': 'application/json' },
       })
@@ -25,11 +25,14 @@ const Orders = () => {
         .then((data) => {
           if (data.deletedCount) {
             console.log(data.deletedCount)
-            setConrol(!control)
+            // setControl(!control)
+            const remains = order.filter((ord) => ord._id != id)
+            setOrder(remains)
           } else {
-            setConrol(false)
+            console.log(data.deletedCount)
+            // setControl(false)
           }
-        })}
+        })
     }
     
 
@@ -60,7 +63,7 @@ const Orders = () => {
                <td>{pd.city}</td>
                {/* <td>{pd.image}</td> */}
                <button
-                 onClick={() => handleDelete(pd._id)}
+                 onClick={() => handleDeleteUser(pd._id)}
                  className='btn bg-warning p-2'
                >
                  Delete
