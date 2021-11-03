@@ -17,7 +17,7 @@ const Orders = () => {
     const handleDeleteUser = (id) => {
       // const confirmBox = window.confirm('Are you sure you want to delete?')
       // if (confirmBox === true) {
-      fetch(`http://haunted-hollow-48244.herokuapp.com/orders/${id}`, {
+      fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${id}`, {
         method: 'DELETE',
         headers: { 'content-type': 'application/json' },
       })
