@@ -17,13 +17,19 @@ import PlacedServices from "./components/PlacedServices/PlacedServices";
 import Services from "./components/Services/Services";
 import Footer from "./components/Footer/Footer";
 import Placed from "./components/Placed/Placed";
+import Register from "./components/Register/Register";
+import DashboardHome from "./components/Dashboard/DashboardHome/DashboardHome";
+import Dashboard from "./components/Dashboard/Dashboard/Dashboard";
+
+
+
 
 function App() {
   return (
     <div className='App'>
       <AuthProvider>
         <Router>
-          <Menubar></Menubar>
+          
           <Switch>
             <Route exact path='/'>
               <Home></Home>
@@ -34,15 +40,21 @@ function App() {
             <Route exact path='/login'>
               <Login></Login>
             </Route>
+            <Route exact path='/register'>
+              <Register></Register>
+            </Route>
             <PrivateRoute exact path='/myEvents'>
               <MyEvents></MyEvents>
             </PrivateRoute>
-            
+            <PrivateRoute exact path='/dashboard'>
+              <Dashboard></Dashboard>
+            </PrivateRoute>
+
             <PrivateRoute exact path='/orders'>
               <Orders></Orders>
             </PrivateRoute>
             <Route exact path='/services'>
-             <Services></Services>
+              <Services></Services>
             </Route>
             <PrivateRoute exact path='/addEvents'>
               <AddEvents></AddEvents>
@@ -54,7 +66,6 @@ function App() {
               <AdminDashboard></AdminDashboard>
             </PrivateRoute>
           </Switch>
-          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

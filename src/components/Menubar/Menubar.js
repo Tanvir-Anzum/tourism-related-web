@@ -84,17 +84,20 @@ const Menubar = () => {
                 </Link>
               )} */}
               {user?.email ? (
-               
-                <button
-                  className='nav-item btn btn-warning p-1 '
-                  onClick={logOut}
-                >
-                  Logout
-                </button>
-                
+                <div>
+                  <Link to='/dashboard'>
+                    <button className='items btn btn-info p-1 '>Dashboard</button>
+                  </Link>
+                  <button
+                    className='nav-item btn btn-warning p-1 '
+                    onClick={logOut}
+                  >
+                    Logout
+                  </button>
+                </div>
               ) : (
                 <Link to='/login'>
-                  <button className='items btn btn-info p-1 '>Register</button>
+                  <button className='items btn btn-info p-1 '>Login</button>
                 </Link>
               )}
               <Link className='nav-link' to='/admin'>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Menubar from '../Menubar/Menubar';
 import PlacedServices from '../PlacedServices/PlacedServices';
 // import PlacedServices from '../PlacedServices/PlacedServices'
 const Services = () => {
@@ -11,6 +12,7 @@ const Services = () => {
    console.log(event)
  return (
    <div>
+     <Menubar></Menubar>
      <div className='row'>
        {event.slice(2, 8).map((user) => (
          <div className='users col-sm-12 col-md-6 mb-3'>

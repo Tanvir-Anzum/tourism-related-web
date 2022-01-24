@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import tourism from '../../Images/tourism.jpg'
 import reviewerOne from '../../Images/reviewerOne.png'
 import reviewerTwo from '../../Images/reviewerTwo.png'
 import reviewerThree from '../../Images/reviewerThree.png'
 import Placed from '../Placed/Placed'
 import './Home.css'
+import Menubar from '../Menubar/Menubar'
+import Footer from '../Footer/Footer'
 
 const Home = () => {
   const [event, setEvent] = useState([])
-  const [events, setEvents] = useState([]);
-  const [search, setSearch] = useState("");
+  const [events, setEvents] = useState([])
+  const [search, setSearch] = useState('')
 
   const handleInput = (e) => {
-    setSearch(e.target.value);
-  };
+    setSearch(e.target.value)
+  }
   useEffect(() => {
     fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
       .then((res) => res.json())
@@ -26,13 +28,14 @@ const Home = () => {
       .then((res) => res.json())
       .then((result) => setEvents(result))
 
-    console.log("hello bro");
-  }; 
+    console.log('hello bro')
+  }
 
-  console.log(search);
-  console.log(event);
+  console.log(search)
+  console.log(event)
   return (
     <div className='container-fluid mb-5'>
+      <Menubar></Menubar>
       <div className='d-flex align-items-center row background'>
         <div className='col-sm-12 col-md-6'>
           <h1>Begin Your Journey With Us</h1>
@@ -131,8 +134,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   )
-};
+}
 
-export default Home;
+export default Home

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap'
+import Menubar from '../Menubar/Menubar';
 const Orders = () => {
    const [order, setOrder] = useState([])
 
@@ -38,6 +39,7 @@ const Orders = () => {
 
    return (
      <div className='container'>
+       <Menubar></Menubar>
        <h3 className='mt-5 mb-5'>All Orders : {order.length}</h3>
 
        <Table striped bordered hover>

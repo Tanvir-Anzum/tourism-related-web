@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import useAuth from "../../hooks/useAuth";
+import Menubar from "../Menubar/Menubar";
 import './MyEvents.css'
 
 const MyEvents = () => {
@@ -46,11 +47,11 @@ const MyEvents = () => {
 
   return (
     <div className='responsive'>
+      <Menubar></Menubar>
       <h3 className='mt-5 mb-5'>My Orders : {events.length}</h3>
       <Table striped bordered hover>
         <thead>
           <tr>
-    
             <th>Service Name</th>
             <th>Service Description</th>
             <th>My Name</th>
