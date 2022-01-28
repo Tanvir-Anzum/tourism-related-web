@@ -22,7 +22,7 @@ const AdminDashboard = () => {
                     onClick={() => setControl("orders")}
                     className="admin-menu p-2"
                   >
-                    Orders
+                    {/* Orders */}
                   </li>
                   <li
                     onClick={() => setControl("addService")}

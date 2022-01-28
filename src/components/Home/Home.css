@@ -6,7 +6,7 @@
   margin-bottom: 100px;
 }
 .background{ 
-  background-color: rgb(248, 244, 244)
+  background-color: rgb(253, 251, 251)
   /* height: 360px; */
  } 
 #one,#two,#three{
@@ -14,7 +14,7 @@
   height: 120px;
   border-radius: 50%;
 }
-#color{
+.color{
   color: orange;
 }
 #bottom{
@@ -28,4 +28,16 @@ img{
       border-radius: 20px;
       /* height: 900px; */
       /* background-color: teal; */
+}
+.bannerOne{
+  width: 80%;
+  height: 500px;
+}
+p{
+     text-align: center;
+    color: #595959;
+    font-family: "Cormorant", Sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    font-style: italic;
 }

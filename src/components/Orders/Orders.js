@@ -38,8 +38,7 @@ const Orders = () => {
     
 
    return (
-     <div className='container'>
-       <Menubar></Menubar>
+     <div className=''>
        <h3 className='mt-5 mb-5'>All Orders : {order.length}</h3>
 
        <Table striped bordered hover>

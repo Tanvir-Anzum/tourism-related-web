@@ -46,7 +46,7 @@ function App() {
             <PrivateRoute exact path='/myEvents'>
               <MyEvents></MyEvents>
             </PrivateRoute>
-            <PrivateRoute exact path='/dashboard'>
+            <PrivateRoute path='/dashboard'>
               <Dashboard></Dashboard>
             </PrivateRoute>
 

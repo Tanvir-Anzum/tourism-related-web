@@ -92,6 +92,12 @@ const useFirebase = () => {
      return () => unsubscribed
    }, [])
 
+   useEffect(() => {
+         fetch(`http://localhost:5000/users/${user.email}`)
+         .then(res => res.json())
+         .then(data => setAdmin(data.admin))
+   },[user.email])
+
   // const handleLogout = () => {
        const logOut = () => {
          setIsLoading(true)
@@ -165,6 +171,7 @@ const useFirebase = () => {
   return {
     // handleGoogleLogin,
     registerUser,
+    admin,
     user,
     isLoading,
     // handleLogout,

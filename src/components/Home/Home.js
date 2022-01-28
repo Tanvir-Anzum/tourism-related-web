@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import tourism from '../../Images/tourism.jpg'
+import bgTwo from '../../Images/bgTwo.jpg'
+import potterFour from '../../Images/potteryFour.jpg'
+import bannerOne from '../../Images/bannerOne.jpg'
 import reviewerOne from '../../Images/reviewerOne.png'
 import reviewerTwo from '../../Images/reviewerTwo.png'
 import reviewerThree from '../../Images/reviewerThree.png'
@@ -12,6 +14,11 @@ const Home = () => {
   const [event, setEvent] = useState([])
   const [events, setEvents] = useState([])
   const [search, setSearch] = useState('')
+
+  const potteryBanner = {
+    background: `url(${bgTwo})`,
+    marginBottom: 100,
+  }
 
   const handleInput = (e) => {
     setSearch(e.target.value)
@@ -28,7 +35,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((result) => setEvents(result))
 
-    console.log('hello bro')
+    console.log('abcdef')
   }
 
   console.log(search)
@@ -36,22 +43,40 @@ const Home = () => {
   return (
     <div className='container-fluid mb-5'>
       <Menubar></Menubar>
-      <div className='d-flex align-items-center row background'>
-        <div className='col-sm-12 col-md-6'>
+      <div
+        style={potteryBanner}
+        className='d-flex align-items-center row background'
+      >
+        <div className='col-sm-12 col-md-12 mt-5 mb-5 pt-3'>
           <h1>Begin Your Journey With Us</h1>
-          <h5>
+          <p>
             We are providing high quality service with low cost.We are commited
             to provide you the best service.
-          </h5>
-          <button className='btn btn-primary'>Learn More</button>
+          </p>
+          {/* <button className='btn btn-primary'>Learn More</button> */}
         </div>
-        <div className='col-sm-12 col-md-6'>
-          <img className='img-fluid' src={tourism} alt='' />
+        <div className='d-flex mt-5'>
+          <div className='col-sm-12 col-md-6'>
+            <img
+              style={{ marginBottom: '-60px' }}
+              className='bannerOne'
+              src={bannerOne}
+              alt=''
+            />
+          </div>
+          <div className='col-sm-12 col-md-6'>
+            <img
+              style={{ marginBottom: '-60px' }}
+              className='bannerOne'
+              src={potterFour}
+              alt=''
+            />
+          </div>
         </div>
       </div>
-      <h3 className='mt-5 mb-5'>Our Services</h3>
+      <h3 className='color mt-5 pt-3 mb-5'>Our Services</h3>
       <div className='row'>
-        {event.map((user) => (
+        {event.slice(0, 6).map((user) => (
           <div className='users col-sm-12 col-md-6 mb-3'>
             <Placed ser={user}></Placed>
           </div>
@@ -78,7 +103,7 @@ const Home = () => {
         </div>
       </div>  */}
       <div id='bottom' className='mb-5 pb-5 pt-5 '>
-        <h3 id='color' className='d-flex justify-content-center'>
+        <h3 className='color d-flex justify-content-center'>
           Travellers Say
         </h3>
         <div className='d-flex justify-content-center'>

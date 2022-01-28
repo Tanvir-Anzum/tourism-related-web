@@ -17,23 +17,31 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
 import {
-  Route,
+  BrowserRouter as Router,
   Switch,
+  Route,
   Link,
   useParams,
   useRouteMatch,
 } from 'react-router-dom'
-import { Button } from '@mui/material'
+import { Button} from '@mui/material'
 
 import DashboardHome from '../DashboardHome/DashboardHome'
 import MakeAdmin from '../MakeAdmin/MakeAdmin'
 import Add from '../Add/Add'
+import { MarkEmailReadOutlined } from '@mui/icons-material'
+import useAuth from '../../../hooks/useAuth'
+import Orders from '../../Orders/Orders'
+import AddEvents from '../../AddEvents/AddEvents'
+import MyEvents from '../../MyEvents/MyEvents'
 
 const drawerWidth = 200
 function Dashboard(props) {
   const { window } = props
   const [mobileOpen, setMobileOpen] = React.useState(false)
   let { path, url } = useRouteMatch()
+
+  const { admin, logOut } = useAuth()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -43,46 +51,49 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      {/* <Link to='/'>
-        <Button color='inherit'>Appointment</Button>
-      </Link> */}
-      <ul>
-        <li>
-          <Link to={`${url}`}>
-            <Button color='inherit'>Dashboard</Button>
-          </Link>
-        </li>
-        <li>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color='inherit'>Make Admin</Button>
-          </Link>
-        </li>
-        <li>
-          <Link to={`${url}/add`}>
-            <Button color='inherit'>Add</Button>
-          </Link>
-        </li>
-      </ul>
-      {/* {admin && (
+
+      <Link to='/'>
+        <Button color='inherit'>Home</Button>
+      </Link>
+      <br />
+      {!admin && (
         <Box>
-          <Link to={`${url}/makeAdmin`}>
-            <Button color='inherit'>Make Admin</Button>
+          {/* <Link to={`${url}`}>
+            <Button color='inherit'>Dashboard</Button>
+          </Link> */}
+          <Link to={`${url}/pay`}>
+            <Button color='inherit'>Pay</Button>
           </Link>
-          <Link to={`${url}/addDoctor`}>
-            <Button color='inherit'>Add Doctor</Button>
+          <br />
+          <Link to={`${url}/myOrders`}>
+            <Button color='inherit'>My Orders</Button>
+          </Link>
+          <br />
+          <Link to={`${url}/review`}>
+            <Button color='inherit'>Review</Button>
           </Link>
         </Box>
-      )} */}
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      )}
+
+      {admin && (
+        <Box>
+          <Link to={`${url}/manageAllOrders`}>
+            <Button color='inherit'>Manage All Orders</Button>
+          </Link>
+          <Link to={`${url}/addaProduct`}>
+            <Button color='inherit'>Add A Product</Button>
+          </Link>
+          <Link to={`${url}/makeAdmin`}>
+            <Button color='inherit'>Make Admin</Button>
+          </Link>
+          <Link to={`${url}/manageOrders`}>
+            <Button color='inherit'>Manage Orders</Button>
+          </Link>
+        </Box>
+      )}
+      <button className='nav-item btn btn-primary p-1 ' onClick={logOut}>
+        Logout
+      </button>
     </div>
   )
 
@@ -160,17 +171,22 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-
         <Switch>
-          <Route exact path={path}>
+          {/* <Route exact path={path}>
+            <DashboardHome></DashboardHome>
+          </Route> */}
+          <Route path={`${path}/manageAllOrders`}>
+            <Orders></Orders>
+          </Route>
+         
+          <Route path={`${path}/addaProduct`}>
+            <AddEvents></AddEvents>
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </Route>
-
-          <Route path={`${path}/:makeAdmin`}>
-            <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path={`${path}/add`}>
-            <Add></Add>
+          <Route path={`${path}/myOrders`}>
+            <MyEvents></MyEvents>
           </Route>
         </Switch>
       </Box>

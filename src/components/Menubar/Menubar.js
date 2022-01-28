@@ -51,7 +51,7 @@ const Menubar = () => {
             <li><a className="dropdown-item" href="#">Something else here</a></li>
           </ul> */}
               {/* </li> */}
-              <li className='nav-item p-2'>
+              {/* <li className='nav-item p-2'>
                 <Link className='nav-link p-2' to='/orders'>
                   Manage Orders
                 </Link>
@@ -61,14 +61,9 @@ const Menubar = () => {
                   myOrders
                 </Link>
               </li>
-              <li className='nav-item p-2'>
-                <Link className='nav-link p-2' to='/services'>
-                  Services
-                </Link>
-              </li>
               <Link to='/adminDashboard'>
                 <button className='items btn btn-primary p-1 '>Admin</button>
-              </Link>
+              </Link> */}
               {/* {user.email ? (
                 <Link className='nav-link p-2'>
                   <button
@@ -83,10 +78,17 @@ const Menubar = () => {
                   <button className='items btn btn-info p-1 '>Register</button>
                 </Link>
               )} */}
+              <li className='nav-item p-2'>
+                <Link className='nav-link p-2' to='/services'>
+                  Explore
+                </Link>
+              </li>
               {user?.email ? (
                 <div>
                   <Link to='/dashboard'>
-                    <button className='items btn btn-info p-1 '>Dashboard</button>
+                    <button className='items btn btn-info p-1 '>
+                      Dashboard
+                    </button>
                   </Link>
                   <button
                     className='nav-item btn btn-warning p-1 '

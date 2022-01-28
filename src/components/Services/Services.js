@@ -14,7 +14,7 @@ const Services = () => {
    <div>
      <Menubar></Menubar>
      <div className='row'>
-       {event.slice(2, 8).map((user) => (
+       {event.map((user) => (
          <div className='users col-sm-12 col-md-6 mb-3'>
            {/* <PlacedServices ser={user}></PlacedServices> */}
            <PlacedServices ser={user}></PlacedServices>
