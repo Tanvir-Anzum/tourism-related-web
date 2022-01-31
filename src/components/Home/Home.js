@@ -119,9 +119,9 @@ const Home = () => {
         </div>
       </div>  */}
       <div id='bottom' className='mb-5 pb-5 pt-5 '>
-        <h3 className='color d-flex justify-content-center'>Travellers Say</h3>
+        <h3 className='color d-flex justify-content-center'>Customers Say</h3>
         <div className='d-flex justify-content-center'>
-          <h1 className='w-75 pb-3'>What Our Traveller Say About Us</h1>
+          <h1 className='w-75 pb-3'>What Our Customers Say About Us</h1>
         </div>
         <div className='container'>
           <div className='row row-cols-sm-1 row-cols-md-3'>
@@ -129,7 +129,7 @@ const Home = () => {
             <div id='first' className='pt-5 col pb-5'>
               <img id='one' src={reviewerOne} alt='' />
               <div>
-                <h5>Traveller</h5>
+                <h5>Customer</h5>
                 <div className='d-flex justify-content-center'>
                   <p className='w-75'>
                     I love travelling the most to be honest.I want to see the
@@ -144,7 +144,7 @@ const Home = () => {
             <div id='second' className='pt-5 col pb-5'>
               <img id='two' src={reviewerTwo} alt='' />
               <div>
-                <h5>Traveller</h5>
+                <h5>Customer</h5>
                 <div className='d-flex justify-content-center'>
                   <p className='w-75'>
                     EarthTrip made my dream come true.I want to see my country
@@ -159,7 +159,7 @@ const Home = () => {
             <div id='third' className='pt-5 pb-5 col'>
               <img id='three' src={reviewerThree} alt='' />
               <div>
-                <h5>Traveller</h5>
+                <h5>Customer</h5>
                 <div className='d-flex justify-content-center'>
                   <p className='w-75'>
                     I had passions for travelling from an early age.EarthTrip
