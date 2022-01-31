@@ -6,6 +6,7 @@ import {
   CircularProgress,
   Alert
 } from '@mui/material'
+import Box from '@mui/material/Box'
 import React, { useState } from 'react'
 import { Grid } from '@mui/material'
 import { NavLink, useLocation, useHistory } from 'react-router-dom'

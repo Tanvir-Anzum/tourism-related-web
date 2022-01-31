@@ -34,6 +34,9 @@ import useAuth from '../../../hooks/useAuth'
 import Orders from '../../Orders/Orders'
 import AddEvents from '../../AddEvents/AddEvents'
 import MyEvents from '../../MyEvents/MyEvents'
+import Review from '../../Review/Review.js'
+import Pay from '../../Pay/Pay'
+import ManageProducts from '../../ManageProducts/ManageProducts'
 
 const drawerWidth = 200
 function Dashboard(props) {
@@ -86,8 +89,8 @@ function Dashboard(props) {
           <Link to={`${url}/makeAdmin`}>
             <Button color='inherit'>Make Admin</Button>
           </Link>
-          <Link to={`${url}/manageOrders`}>
-            <Button color='inherit'>Manage Orders</Button>
+          <Link to={`${url}/manageProducts`}>
+            <Button color='inherit'>Manage Products</Button>
           </Link>
         </Box>
       )}
@@ -182,11 +185,20 @@ function Dashboard(props) {
           <Route path={`${path}/addaProduct`}>
             <AddEvents></AddEvents>
           </Route>
+          <Route path={`${path}/pay`}>
+            <Pay></Pay>
+          </Route>
           <Route path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </Route>
+          <Route path={`${path}/review`}>
+            <Review></Review>
+          </Route>
           <Route path={`${path}/myOrders`}>
             <MyEvents></MyEvents>
+          </Route>
+          <Route path={`${path}/manageProducts`}>
+            <ManageProducts></ManageProducts>
           </Route>
         </Switch>
       </Box>

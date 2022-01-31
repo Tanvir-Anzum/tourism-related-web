@@ -11,7 +11,7 @@ const Orders = () => {
     //  fetch('https://localhost:5000/orders')
        .then((res) => res.json())
        .then((data) => setOrder(data))
-   }, [control])
+   }, [])
 
    
   //  // const response = confirm('are you sure to proceed?')
@@ -19,8 +19,7 @@ const Orders = () => {
       // const confirmBox = window.confirm('Are you sure you want to delete?')
       // if (confirmBox === true) {
       fetch(`https://haunted-hollow-48244.herokuapp.com/orders/${id}`, {
-        method: 'DELETE',
-       
+        method: 'DELETE',     
       })
         .then((res) => res.json())
         .then((data) => {

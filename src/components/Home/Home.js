@@ -9,16 +9,23 @@ import Placed from '../Placed/Placed'
 import './Home.css'
 import Menubar from '../Menubar/Menubar'
 import Footer from '../Footer/Footer'
+import Review from '../Review/Review'
+import useAuth from '../../hooks/useAuth'
 
 const Home = () => {
   const [event, setEvent] = useState([])
   const [events, setEvents] = useState([])
+  const [review, setReview] = useState([])
   const [search, setSearch] = useState('')
+  const { user } = useAuth()
+  // const { show } = Review()
+  // const {show} = Show()
 
   const potteryBanner = {
     background: `url(${bgTwo})`,
     marginBottom: 100,
   }
+  // console.log(show)
 
   const handleInput = (e) => {
     setSearch(e.target.value)
@@ -27,6 +34,11 @@ const Home = () => {
     fetch('https://haunted-hollow-48244.herokuapp.com/allEvents')
       .then((res) => res.json())
       .then((data) => setEvent(data))
+  }, [])
+  useEffect(() => {
+    fetch('http://localhost:5000/reviews')
+      .then((res) => res.json())
+      .then((data) => setReview(data))
   }, [])
   const handleSearch = () => {
     fetch(
@@ -40,9 +52,13 @@ const Home = () => {
 
   console.log(search)
   console.log(event)
+  console.log(user.email)
+  // const { comment } = review
+  // console.log(comment)
   return (
     <div className='container-fluid mb-5'>
       <Menubar></Menubar>
+      {/* <Review></Review> */}
       <div
         style={potteryBanner}
         className='d-flex align-items-center row background'
@@ -103,9 +119,7 @@ const Home = () => {
         </div>
       </div>  */}
       <div id='bottom' className='mb-5 pb-5 pt-5 '>
-        <h3 className='color d-flex justify-content-center'>
-          Travellers Say
-        </h3>
+        <h3 className='color d-flex justify-content-center'>Travellers Say</h3>
         <div className='d-flex justify-content-center'>
           <h1 className='w-75 pb-3'>What Our Traveller Say About Us</h1>
         </div>
@@ -156,6 +170,17 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            <div style={{marginLeft : '350px',}}>
+            <h1 className='mt-5 mb-3'>Reviews</h1>
+          </div>
+            {/* <h1>{review}</h1> */}
+            {review.map((rev) => (
+              <div className='text-start col-md-12'>
+                <h6>{rev.reviewer}</h6>
+                <h6 className='text-muted'>{rev.comment}</h6>
+                <br />
+              </div>
+            ))}
           </div>
         </div>
       </div>

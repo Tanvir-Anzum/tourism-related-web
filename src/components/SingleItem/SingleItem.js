@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form'
 import { useParams } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import Menubar from '../Menubar/Menubar';
 
 const SingleItem = () => {
   const {
@@ -24,7 +25,7 @@ const SingleItem = () => {
    // console.log(data)
    const name = data.name
    const city = data.city
-   const email = data.email
+   const email = user.email
    const description = item.description
    const title = item.title
 
@@ -52,27 +53,29 @@ const SingleItem = () => {
  console.log(item)
  return (
    <div className='d-flex row'>
+     <Menubar></Menubar>
      <div className='col-sm-12 col-md-6'>
        <div className='login-box w-50 m-auto mt'>
-         <div className='event-box border border d-flex justify-content-center align-items-center'>
-           <div className='login-form'></div>
-           <form onSubmit={handleSubmit(onSubmit)}>
+         <div className='d-flex justify-content-center align-items-center'>
+           <div className='mt-5 pt-5 login-form'></div>
+           <form className='mt-5 pt-5' onSubmit={handleSubmit(onSubmit)}>
              <input
                {...register('name')}
                placeholder='name'
                className='p-2 m-2 w-100'
              />
 
-             <input
+             {/* <input
                {...register('email')}
                placeholder='email'
-               className='p-2 m-2'
+              //  className='p-2 m-2'
                className='p-2 m-2 w-100'
              />
+             <input */}
              <input
                {...register('city')}
                placeholder='city'
-               className='p-2 m-2'
+               //  className='p-2 m-2'
                className='p-2 m-2 w-100'
              />
 
@@ -97,7 +100,7 @@ const SingleItem = () => {
      </div>
      {/* <p>This is {itemId} </p> */}
      {/* <div> */}
-     <div className='col-sm-12 col-md-6'>
+     <div className='col-sm-12 col-md-6 mt-5 pt-5'>
        <div className='d-flex justify-content-center mt'>
          <img className='w-50' src={item.image} alt='' />
        </div>

@@ -18,7 +18,8 @@ const MyEvents = () => {
   // //  console.log(data)
   const { user } = useAuth()
   const [events, setEvents] = useState([])
-   const [control, setConrol] = useState(false)
+  const [order, setOrder] = useState([])
+   
 
   useEffect(() => {
     // fetch(`http://localhost:5000/orders/${myUser}`)
@@ -38,9 +39,10 @@ const MyEvents = () => {
         .then((data) => {
           if (data.deletedCount) {
             console.log(data.deletedCount)
-            setConrol(!control)
+            const remains = order.filter((ord) => ord._id != id)
+            setOrder(remains)
           } else {
-            setConrol(false)
+            // setConrol(false)
           }
         })
     }
