@@ -28,9 +28,10 @@ const SingleItem = () => {
    const email = user.email
    const description = item.description
    const title = item.title
+   const status = 'pending'
 
    const got = {
-     name, city, email, title, description
+     name, city, email, title, description, status
    }
 
    console.log(got)

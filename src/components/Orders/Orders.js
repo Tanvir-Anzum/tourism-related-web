@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap'
+import useAuth from '../../hooks/useAuth';
 import Menubar from '../Menubar/Menubar';
 const Orders = () => {
    const [order, setOrder] = useState([])
-
+  //  const [status,setStatus] = useState('pending')
    const [control, setControl] = useState(false)
+   const { token } = useAuth()
 
    useEffect(() => {
      fetch('https://haunted-hollow-48244.herokuapp.com/orders')
@@ -13,7 +15,47 @@ const Orders = () => {
        .then((data) => setOrder(data))
    }, [])
 
-   
+   const handleStatus = (id) => {
+     const selected = order.filter((ord) => ord._id == id)
+     console.log(selected[0].status)
+             if(selected[0].status === 'pending'){
+              const user = { id }
+              console.log(user)
+              fetch('http://localhost:5000/orders', {
+                method: 'PUT',
+                headers: {
+                  authorization: `Bearer ${token}`,
+                  'content-type': 'application/json',
+                },
+                body: JSON.stringify(user),
+                           })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.modifiedCount) {
+                    console.log(data)
+                  }
+                })   
+                console.log('pending')      
+             }
+             else{
+               const user = { id }
+                 fetch('http://localhost:5000/status', {
+                   method: 'PUT',
+                   headers: {
+                     authorization: `Bearer ${token}`,
+                     'content-type': 'application/json',
+                   },
+                   body: JSON.stringify(user),
+                 })
+                   .then((res) => res.json())
+                   .then((data) => {
+                     if (data.modifiedCount) {
+                       console.log(data)
+                     }
+                   }) 
+             }
+   }
+  
   //  // const response = confirm('are you sure to proceed?')
     const handleDeleteUser = (id) => {
       // const confirmBox = window.confirm('Are you sure you want to delete?')
@@ -49,8 +91,9 @@ const Orders = () => {
              <th>User Name</th>
              <th>User Email</th>
              <th>City</th>
-             {/* <th>Image Link</th> */}
              <th>Action</th>
+             {/* <th>Image Link</th> */}
+             <th>Status</th>
            </tr>
          </thead>
          {order?.map((pd, index) => (
@@ -62,12 +105,22 @@ const Orders = () => {
                <td>{pd.email}</td>
                <td>{pd.city}</td>
                {/* <td>{pd.image}</td> */}
-               <button
-                 onClick={() => handleDeleteUser(pd._id)}
-                 className='btn bg-warning p-2'
-               >
-                 Delete
-               </button>
+               <td>
+                 <button
+                   onClick={() => handleDeleteUser(pd._id)}
+                   className='btn bg-warning p-2'
+                 >
+                   Delete
+                 </button>
+               </td>
+               <td>
+                 <button
+                   onClick={() => handleStatus(pd._id)}
+                   className='btn bg-warning p-2'
+                 >
+                   {pd.status}
+                 </button>
+               </td>
              </tr>
            </tbody>
          ))}
