@@ -17,7 +17,7 @@ const Home = () => {
   const [events, setEvents] = useState([])
   const [review, setReview] = useState([])
   const [search, setSearch] = useState('')
-  const { user } = useAuth()
+  const { user,admin } = useAuth()
   // const { show } = Review()
   // const {show} = Show()
 
@@ -47,12 +47,13 @@ const Home = () => {
       .then((res) => res.json())
       .then((result) => setEvents(result))
 
-    console.log('abcdef')
+    console.log(admin)
   }
 
   console.log(search)
   console.log(event)
   console.log(user.email)
+  
   // const { comment } = review
   // console.log(comment)
   return (
