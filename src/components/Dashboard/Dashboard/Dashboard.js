@@ -45,7 +45,7 @@ function Dashboard(props) {
   let { path, url } = useRouteMatch()
 
   const { admin, logOut } = useAuth()
-
+  console.log(admin);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
