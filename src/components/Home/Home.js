@@ -52,7 +52,7 @@ const Home = () => {
 
   console.log(search)
   console.log(event)
-  console.log(user.email)
+  console.log(admin)
   
   // const { comment } = review
   // console.log(comment)
